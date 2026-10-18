@@ -28,4 +28,40 @@ func main() {
 	}
 
 	// loops
+	x3 :=0
+	for x3 < 3 {
+		fmt.Println(x3)
+		x3++
+	}
+	str := "hello world你好"
+	for idx:=0; idx < len(str); idx++{
+		fmt.Printf("%c", str[idx])
+	}
+	for _, char :=range str{
+		fmt.Printf("%c", char)
+	}
+	// array
+	var arr1 = [2]int{1, 2} // cannot change size later on
+	arr1[0] = 10
+	fmt.Println(arr1)
+
+	var arr2 = [...][2]int{{1, 1}, {2, 2}}
+	arr2[0] = [2]int{10, 11}
+	fmt.Printf("%T", arr2)
+
+	for _, nested := range arr2{
+		for _, value := range nested{
+			fmt.Println(value)
+		}
+		
+	}
+
+	// slice
+	fmt.Println("++++++++++++Slice+++++++++++++")
+	arr3 := [5]int{1, 2, 3, 4, 5}
+	sl := arr3[1:3] // pointer -> arr[1], length -> 2, capacity -> 4
+	fmt.Println(sl)
+	sl = sl[:4] // slice the slice
+	// sl[0] = 22 // update slice update the origin array
+	fmt.Println(sl)
 }
